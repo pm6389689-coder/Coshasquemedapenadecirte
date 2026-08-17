@@ -5,117 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mi Libreta Especial</title>
   <style>
-    body { background-color: #f4efe6; font-family: 'Georgia', serif; display: flex; justify-content: center; padding: 20px; align-items: center; min-height: 100vh; margin: 0; }
-    .notebook { background: #ffffff; width: 100%; max-width: 500px; border-radius: 12px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; }
-    .page { display: none; padding: 10px; min-height: 280px; }
+    body { background-color: #2c3e50; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: 'Georgia', serif; }
+    
+    /* El libro */
+    .book { width: 350px; height: 500px; background: white; border-radius: 5px; box-shadow: 0 0 20px rgba(0,0,0,0.5); position: relative; perspective: 1000px; }
+    
+    .page { position: absolute; width: 100%; height: 100%; background: #fdfaf6; padding: 40px; box-sizing: border-box; backface-visibility: hidden; transition: transform 0.8s; transform-origin: left; display: none; }
     .active { display: block; }
-    .controls { margin-top: 25px; display: flex; justify-content: space-between; align-items: center; }
-    button { background: #e07a5f; color: white; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-weight: bold; }
-    button:disabled { background: #ccc; cursor: not-allowed; }
-    .page-num { font-size: 0.9em; color: #888; font-weight: bold; }
-    .audio-btn { background: #ffe6eb; border: 1px solid #ffb6c1; padding: 12px; border-radius: 8px; cursor: pointer; margin-top: 15px; font-size: 0.9em; font-weight: bold; color: #d65a70; }
+    
+    /* Efecto de vuelta de página */
+    .flipped { transform: rotateY(-180deg); }
+    
+    h1 { color: #d65a70; }
+    img { width: 150px; border-radius: 10px; margin: 20px 0; }
+    .audio-btn { background: #ffb6c1; padding: 10px; border-radius: 5px; cursor: pointer; display: inline-block; }
+    
+    .nav { position: absolute; bottom: 20px; width: 100%; display: flex; justify-content: space-around; }
+    button { background: #d65a70; color: white; border: none; padding: 10px; cursor: pointer; }
   </style>
 </head>
 <body>
 
-  <div class="notebook">
-    
-    <!-- PÁGINAS 1 A LA 17 -->
-    <div class="page active"><h3>PÁGINA 1</h3><p>Pensando en ti desde el primer día... 💖</p></div>
-    <div class="page"><h3>PÁGINA 2</h3><p>Cada momento a tu lado se vuelve un recuerdo bonito.</p></div>
-    <div class="page"><h3>PÁGINA 3</h3><p>Un pequeño detalle para sacarte una sonrisa.</p></div>
-    <div class="page"><h3>PÁGINA 4</h3><p>Me alegra mucho haber coincido contigo.</p></div>
-    <div class="page"><h3>PÁGINA 5</h3><p>Escribiendo historias que solo tú y yo entendemos.</p></div>
-    <div class="page"><h3>PÁGINA 6</h3><p>Gracias por ser como eres conmigo.</p></div>
-    <div class="page"><h3>PÁGINA 7</h3><p>Tu sonrisa ilumina mi día por completo.</p></div>
-    <div class="page"><h3>PÁGINA 8</h3><p>Poco a poco esto se convirtió en algo muy especial.</p></div>
-    <div class="page"><h3>PÁGINA 9</h3><p>Eres de esas personas que valen la pena totalmente.</p></div>
-    <div class="page"><h3>PÁGINA 10</h3><p>Cada conversación contigo se me pasa volando.</p></div>
-    <div class="page"><h3>PÁGINA 11</h3><p>Nunca me canso de hablar contigo.</p></div>
-    <div class="page"><h3>PÁGINA 12</h3><p>Eres increíble y quería que lo tuvieras presente.</p></div>
-    <div class="page"><h3>PÁGINA 13</h3><p>Espero que disfrutes leyendo esta libretita.</p></div>
-    <div class="page"><h3>PÁGINA 14</h3><p>Un recordatorio de lo mucho que significas para mí.</p></div>
-    <div class="page"><h3>PÁGINA 15</h3><p>Contigo todo es más bonito y tranquilo.</p></div>
-    <div class="page"><h3>PÁGINA 16</h3><p>Gracias por estar presente en mi vida.</p></div>
-    <div class="page"><h3>PÁGINA 17</h3><p>Esto apenas comienza, faltan muchas historias por escribir...</p></div>
-
-    <!-- PÁGINAS 18 A LA 25 -->
-    <div class="page">
-      <h3>PÁGINA 18</h3>
-      <p>hagamos un trato, tú me enseñas inglés, pq mi inglés es pésimo y yo te invito un helado ¿Va?<br><br>
-      Tan lindos tus ojoss, que me hipnotizan muy poquito a poco,<br><br>
-      Quiero, quiero, quiero, quiero, que me des todo tú amor ☘️🍀<br><br>
-      tan linda tu boca porque tus labios siempre me provocan entraré en tu amorrr<br><br>
-      no está mal escroto solo que quiero que adivines la canción 🥺</p>
+<div class="book" id="book">
+    <!-- PORTADA -->
+    <div class="page active">
+        <h1>Para Alexandra 💖</h1>
+        <img src="portada.jpg" alt="Pusheen y Camarón">
+        <p>Este es nuestro libro de momentos.</p>
+        <div class="audio-btn" onclick="document.getElementById('cancionLove').play()">🔊 Escuchar canción</div>
+        <audio id="cancionLove" src="love-zoe.mp3"></audio>
     </div>
 
-    <div class="page">
-      <h3>PÁGINA 19</h3>
-      <p>Zutto isshoni itai, You are My destine oshi nose si lo escribí bien xD por eso enséñame inglés xD jijija.<br><br>
-      Tengo tiempo para saber... si lo que sueño concluye en algo... no te apures... llamas mi amor... pues es entonces cuando las horas bajan... y el día es tibio... sin vosss... 🔰</p>
+    <!-- PÁGINAS -->
+    <div class="page"><h3>PÁGINA 2</h3><p>Contenido de la página 2...</p></div>
+    <div class="page"><h3>PÁGINA 3</h3><p>Contenido de la página 3...</p></div>
+    <!-- ... Aquí sigues añadiendo <div class="page">...</div> hasta la 25 -->
+    <div class="page"><h3>PÁGINA 25</h3><p>Fin del libro.</p></div>
+
+    <div class="nav">
+        <button onclick="prevPage()">◀ Anterior</button>
+        <button onclick="nextPage()">Siguiente ▶</button>
     </div>
+</div>
 
-    <div class="page">
-      <h3>PÁGINA 20</h3>
-      <p>Oye, quiero ver si quieres pasar el resto de la eternidad a mi lado,</p>
-      <div class="audio-btn" onclick="document.getElementById('cancionLove').play()">
-        🔊 Presiona aquí para escuchar Love - Zoé 🎵
-      </div>
-      <audio id="cancionLove" src="love-zoe.mp3"></audio>
-    </div>
-
-    <div class="page">
-      <h3>PÁGINA 21</h3>
-      <p>Le pido a Dios todas las noches que bendiga tu caminar y que te cuide mucho. De verdad estoy convencido de que haberte conocido no fue una coincidencia, sino un regalo muy lindo de su parte xDD. Como dice en el libro de Rut: <i>Donde tú vayas, yo iré; y donde tú vivas, viviré. Tu pueblo será mi pueblo, y tu Dios será mi Dios.</i></p>
-    </div>
-
-    <div class="page">
-      <h3>PÁGINA 22</h3>
-      <p>El amor de verdad es paciente, busca siempre el bien del otro y no se rinde ante nada. Le agradezco mucho al Señor porque a tu lado aprendo cada día a querer con ganas y de la forma más pura. <i>El amor es paciente, es servicial; el amor no tiene envidia, no hace alarde. Todo lo excusa, todo lo cree, todo lo espera, todo lo soporta.</i></p>
-    </div>
-
-    <div class="page">
-      <h3>PÁGINA 23</h3>
-      <p>Estoy aprendiendo mucho contigo incluso cada dia trato de ser mejor persona, porque yo si quiero ser alguien especial para ti, y todo lo que te estoy escribiendo en este texto es geniuno, y verdadero y no quiero que interpretes esto como algo intenso, lo hago porque yo te quiero y quiero que seas tú, no me dejes porfa xDD, sino te voy a ir a rogar a tu casa, ya se dónde vives</p>
-    </div>
-
-    <div class="page">
-      <h3>PÁGINA 24</h3>
-      <p>Dicen las Sagradas Escrituras que <i>las muchas aguas no podrán apagar el amor, ni lo ahogarán los ríos</i>. Y es que lo que siento por ti no depende de un momento o de un estado de ánimo, está cimentado en la fe de que Dios nos puso en el mismo camino para cuidarnos el uno al otro.</p>
-    </div>
-
-    <div class="page">
-      <h3>PÁGINA 25</h3>
-      <p>Que el Señor sea siempre el centro de todo lo que hagamos. Si lo ponemos a Él en primer lugar, estoy seguro de que ningún Papu podrá derribar este sentimiento xDD. Como dice en Eclesiastés: <i>Un cordón de tres dobleces no se rompe fácilmente.</i></p>
-    </div>
-
-    <!-- BOTONES PARA CAMBIAR DE PÁGINA -->
-    <div class="controls">
-      <button id="btnPrev" onclick="changePage(-1)" disabled>◀ Anterior</button>
-      <span class="page-num" id="pageNum">Página 1 de 25</span>
-      <button id="btnNext" onclick="changePage(1)">Siguiente ▶</button>
-    </div>
-
-  </div>
-
-  <script>
-    let currentPage = 0;
+<script>
+    let current = 0;
     const pages = document.querySelectorAll('.page');
-    const pageNumText = document.getElementById('pageNum');
-    const btnPrev = document.getElementById('btnPrev');
-    const btnNext = document.getElementById('btnNext');
-
-    function changePage(direction) {
-      pages[currentPage].classList.remove('active');
-      currentPage += direction;
-      pages[currentPage].classList.add('active');
-
-      pageNumText.innerText = `Página ${currentPage + 1} de ${pages.length}`;
-      
-      btnPrev.disabled = (currentPage === 0);
-      btnNext.disabled = (currentPage === pages.length - 1);
+    function nextPage() {
+        if(current < pages.length - 1) {
+            pages[current].classList.remove('active');
+            current++;
+            pages[current].classList.add('active');
+        }
     }
-  </script>
-
+    function prevPage() {
+        if(current > 0) {
+            pages[current].classList.remove('active');
+            current--;
+            pages[current].classList.add('active');
+        }
+    }
+</script>
 </body>
 </html>
+
