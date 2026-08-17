@@ -5,67 +5,146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mi Libreta Especial</title>
   <style>
-    body { background-color: #2c3e50; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: 'Georgia', serif; }
+    body { background: #f4efe6; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; font-family: 'Georgia', serif; }
+    .book { width: 340px; min-height: 500px; background: white; padding: 25px; border-radius: 12px; border: 1px solid #ddd; box-shadow: 0 8px 20px rgba(0,0,0,0.15); position: relative; text-align: center; }
+    .page { display: none; padding-bottom: 50px; }
+    .active { display: block; animation: fadeIn 0.4s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
     
-    /* El libro */
-    .book { width: 350px; height: 500px; background: white; border-radius: 5px; box-shadow: 0 0 20px rgba(0,0,0,0.5); position: relative; perspective: 1000px; }
+    .titulo-portada { color: #d65a70; font-size: 1.5em; margin-bottom: 10px; font-style: italic; }
+    h3 { color: #888; font-size: 0.9em; margin-bottom: 15px; border-bottom: 1px dashed #ccc; padding-bottom: 5px; }
+    p { font-size: 0.95em; color: #333; line-height: 1.5; text-align: left; white-space: pre-line; }
+    .img-portada { width: 160px; height: auto; border-radius: 10px; margin: 15px auto; display: block; }
+    .audio-btn { background: #ffe6eb; border: 1px solid #ffb6c1; padding: 12px; border-radius: 8px; cursor: pointer; margin-top: 15px; font-weight: bold; color: #d65a70; font-size: 0.9em; }
     
-    .page { position: absolute; width: 100%; height: 100%; background: #fdfaf6; padding: 40px; box-sizing: border-box; backface-visibility: hidden; transition: transform 0.8s; transform-origin: left; display: none; }
-    .active { display: block; }
-    
-    /* Efecto de vuelta de página */
-    .flipped { transform: rotateY(-180deg); }
-    
-    h1 { color: #d65a70; }
-    img { width: 150px; border-radius: 10px; margin: 20px 0; }
-    .audio-btn { background: #ffb6c1; padding: 10px; border-radius: 5px; cursor: pointer; display: inline-block; }
-    
-    .nav { position: absolute; bottom: 20px; width: 100%; display: flex; justify-content: space-around; }
-    button { background: #d65a70; color: white; border: none; padding: 10px; cursor: pointer; }
+    .controls { position: absolute; bottom: 15px; left: 20px; right: 20px; display: flex; justify-content: space-between; align-items: center; }
+    button { background: #e07a5f; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+    button:disabled { background: #ccc; cursor: not-allowed; }
+    .page-num { font-size: 0.8em; color: #777; font-weight: bold; }
   </style>
 </head>
 <body>
 
-<div class="book" id="book">
-    <!-- PORTADA -->
+<div class="book">
+
+    <!-- PÁGINA 1: PORTADA, TÍTULO Y REPRODUCTOR DE AUDIO -->
     <div class="page active">
-        <h1>Para Alexandra 💖</h1>
-        <img src="portada.jpg" alt="Pusheen y Camarón">
-        <p>Este es nuestro libro de momentos.</p>
-        <div class="audio-btn" onclick="document.getElementById('cancionLove').play()">🔊 Escuchar canción</div>
+        <h1 class="titulo-portada">Te amo para siempre, y siempre es hoy</h1>
+        <p>La verdadera definición del amor no está en idealizar las relaciones como si fuesen perfectas desde el inicio, sino en elegirnos cada día de manera consciente y real.</p>
+        <img src="portada.jpg" class="img-portada" alt="Pusheen y Camarón">
+        <div class="audio-btn" onclick="document.getElementById('cancionLove').play()">
+            🔊 Toca aquí para escuchar Love - Zoé 🎵
+        </div>
         <audio id="cancionLove" src="love-zoe.mp3"></audio>
     </div>
 
-    <!-- PÁGINAS -->
-    <div class="page"><h3>PÁGINA 2</h3><p>Contenido de la página 2...</p></div>
-    <div class="page"><h3>PÁGINA 3</h3><p>Contenido de la página 3...</p></div>
-    <!-- ... Aquí sigues añadiendo <div class="page">...</div> hasta la 25 -->
-    <div class="page"><h3>PÁGINA 25</h3><p>Fin del libro.</p></div>
+    <!-- PÁGINAS 2 A 4 -->
+    <div class="page">
+        <h3>PÁGINA 2</h3>
+        <p>El amor es paciencia, estar ahí tanto en las buenas como en las malas. Es saber esperar y acompañar a la persona elegida con el amor paciente y genuino que realmente es.</p>
+    </div>
 
-    <div class="nav">
-        <button onclick="prevPage()">◀ Anterior</button>
-        <button onclick="nextPage()">Siguiente ▶</button>
+    <div class="page">
+        <h3>PÁGINA 3</h3>
+        <p>Como Noah y Allie en Diario de una pasión, construyendo algo real contra todo. Eres mi "Kind of Woman"... aunque a veces parezca Chico Bestia rogándole a Raven xDD.</p>
+    </div>
+
+    <div class="page">
+        <h3>PÁGINA 4</h3>
+        <p>Tú eres el pincel y el lienzo en una escala de grises que cobró vida. Se trata de amarnos paso a paso, detalle a detalle, hasta llegar juntos al cielo.</p>
+    </div>
+
+    <!-- PÁGINAS 5 A 17 -->
+    <div class="page"><h3>PÁGINA 5</h3><p>Si me dieran a elegir entre tener la razón o tenerte a ti riéndote de mis tonterías, elijo lo segundo mil veces. Me encanta cómo conviertes un día ordinario en algo bonito con solo aparecer.</p></div>
+    <div class="page"><h3>PÁGINA 6</h3><p>A veces me pongo a pensar en la suerte que tuve de coincidir contigo. Entre tantas personas, horarios y lugares en el mundo, terminó siendo contigo con quien quería hablar todos los días.</p></div>
+    <div class="page"><h3>PÁGINA 7</h3><p>Prometo escucharte siempre, incluso cuando me cuentes cosas que no entiendo del todo o cuando te dé por hablar de cosas aleatorias a mitad de la noche. Tu voz siempre es mi lugar seguro.</p></div>
+    <div class="page"><h3>PÁGINA 8</h3><p>Eres como esa canción que pongo en bucle y nunca me cansa. De verdad, hay días en los que solo ver un mensaje tuyo me arregla la tarde por completo.</p></div>
+    <div class="page"><h3>PÁGINA 9</h3><p>Acepto que me da un poquito de pena decirte todo esto en persona (por eso me puse a programar este sitio xDD), pero cada palabra aquí escrita es completamente sincera.</p></div>
+    <div class="page"><h3>PÁGINA 10</h3><p>Me gusta la forma en que cuidamos de los dos. Quiero ser ese apoyo constante para ti, el que celebre tus logros y el que te sostenga cuando sientas que el día estuvo pesado.</p></div>
+    <div class="page"><h3>PÁGINA 11</h3><p>Como diría Luffy: ¡no necesito una razón para proteger y querer a quien me importa! Y tú te volviste la persona más importante de mi tripulación. 👒🏴‍☠️</p></div>
+    <div class="page"><h3>PÁGINA 12</h3><p>Quiero aprender de ti, de tus gustos, de tu forma de ver la vida. Gracias por tener la paciencia de enseñarme cosas nuevas (¡empezando por el inglés! xD).</p></div>
+    <div class="page"><h3>PÁGINA 13</h3><p>Hay momentos en los que simplemente me quedo viendo lo bonita que eres y me pregunto en qué momento me gané semejante regalo del cielo.</p></div>
+    <div class="page"><h3>PÁGINA 14</h3><p>No prometo que todo vaya a ser perfecto siempre, pero sí prometo que de mi parte nunca va a faltar el interés, el respeto y las ganas de resolver las cosas juntos.</p></div>
+    <div class="page"><h3>PÁGINA 15</h3><p>Me encanta la complicidad que estamos construyendo. Es bonito saber que puedo ser 100% yo mismo contigo sin miedo a ser juzgado.</p></div>
+    <div class="page"><h3>PÁGINA 16</h3><p>Si el amor se trata de construir día a día con pequeños detalles, quiero asegurarme de que nunca te falte una razón para sonreír al menos una vez al día.</p></div>
+    <div class="page"><h3>PÁGINA 17</h3><p>Y bueno... llegamos a la mitad del libro. Agárrate fuerte porque a partir de la siguiente página viene lo que escribí con todo el corazón desenfrenado 👀...</p></div>
+
+    <!-- PÁGINAS 18 A 25 -->
+    <div class="page">
+      <h3>PÁGINA 18</h3>
+      <p>hagamos un trato, tú me enseñas inglés, pq mi inglés es pésimo y yo te invito un helado ¿Va?
+
+Tan lindos tus ojoss, que me hipnotizan muy poquito a poco,
+
+Quiero, quiero, quiero, quiero, que me des todo tú amor ☘️🍀
+
+tan linda tu boca porque tus labios siempre me provocan entraré en tu amorrr
+
+no está mal escroto solo que quiero que adivines la canción 🥺</p>
+    </div>
+
+    <div class="page">
+      <h3>PÁGINA 19</h3>
+      <p>Zutto isshoni itai, You are My destine oshi nose si lo escribí bien xD por eso enséñame inglés xD jijija.
+
+Tengo tiempo para saber... si lo que sueño concluye en algo... no te apures... llamas mi amor... pues es entonces cuando las horas bajan... y el día es tibio... sin vosss... 🔰</p>
+    </div>
+
+    <div class="page">
+      <h3>PÁGINA 20</h3>
+      <p>Oye, quiero ver si quieres pasar el resto de la eternidad a mi lado,</p>
+    </div>
+
+    <div class="page">
+      <h3>PÁGINA 21</h3>
+      <p>Le pido a Dios todas las noches que bendiga tu caminar y que te cuide mucho. De verdad estoy convencido de que haberte conocido no fue una coincidencia, sino un regalo muy lindo de su parte xDD. Como dice en el libro de Rut: <i>Where you go I will go, and where you stay I will stay. Your people will be my people and your God my God.</i></p>
+    </div>
+
+    <div class="page">
+      <h3>PÁGINA 22</h3>
+      <p>El amor de verdad es paciente, busca siempre el bien del otro y no se rinde ante nada. Le agradezco mucho al Señor porque a tu lado aprendo cada día a querer con ganas y de la forma más pura. <i>Love is patient, love is kind. It does not envy, it does not boast, it is not proud... It always protects, always trusts, always hopes, always perseveres.</i></p>
+    </div>
+
+    <div class="page">
+      <h3>PÁGINA 23</h3>
+      <p>Estoy aprendiendo mucho contigo incluso cada dia trato de ser mejor persona, porque yo si quiero ser alguien especial para ti, y todo lo que te estoy escribiendo en este texto es geniuno, y verdadero y no quiero que interpretes esto como algo intenso, lo hago porque yo te quiero y quiero que seas tú, no me dejes porfa xDD, sino te voy a ir a rogar a tu casa, ya se dónde vives</p>
+    </div>
+
+    <div class="page">
+      <h3>PÁGINA 24</h3>
+      <p>Dicen las Sagradas Escrituras que <i>las muchas aguas no podrán apagar el amor, ni lo ahogarán los ríos</i>. Y es que lo que siento por ti no depende de un momento o de un estado de ánimo, está cimentado en la fe de que Dios nos puso en el mismo camino para cuidarnos el uno al otro.</p>
+    </div>
+
+    <div class="page">
+      <h3>PÁGINA 25</h3>
+      <p>Que el Señor sea siempre el centro de todo lo que hagamos. Si lo ponemos a Él en primer lugar, estoy seguro de que ningún Papu podrá derribar este sentimiento xDD. Como dice en Eclesiastés: <i>Un cordón de tres dobleces no se rompe fácilmente.</i></p>
+    </div>
+
+    <!-- CONTROLES -->
+    <div class="controls">
+      <button id="btnPrev" onclick="changePage(-1)" disabled>◀ Anterior</button>
+      <span class="page-num" id="pageNum">Página 1 de 25</span>
+      <button id="btnNext" onclick="changePage(1)">Siguiente ▶</button>
     </div>
 </div>
 
 <script>
-    let current = 0;
+    let currentPage = 0;
     const pages = document.querySelectorAll('.page');
-    function nextPage() {
-        if(current < pages.length - 1) {
-            pages[current].classList.remove('active');
-            current++;
-            pages[current].classList.add('active');
-        }
-    }
-    function prevPage() {
-        if(current > 0) {
-            pages[current].classList.remove('active');
-            current--;
-            pages[current].classList.add('active');
-        }
+    const pageNumText = document.getElementById('pageNum');
+    const btnPrev = document.getElementById('btnPrev');
+    const btnNext = document.getElementById('btnNext');
+
+    function changePage(direction) {
+      pages[currentPage].classList.remove('active');
+      currentPage += direction;
+      pages[currentPage].classList.add('active');
+
+      pageNumText.innerText = `Página ${currentPage + 1} de ${pages.length}`;
+      
+      btnPrev.disabled = (currentPage === 0);
+      btnNext.disabled = (currentPage === pages.length - 1);
     }
 </script>
 </body>
 </html>
-
