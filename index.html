@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Libreta Especial</title>
+  <title>Mi Libreta</title>
   <style>
     body { background: #f4efe6; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; font-family: 'Georgia', serif; }
     .book { width: 340px; min-height: 500px; background: white; padding: 25px; border-radius: 12px; border: 1px solid #ddd; box-shadow: 0 8px 20px rgba(0,0,0,0.15); position: relative; text-align: center; }
@@ -11,7 +11,7 @@
     .active { display: block; animation: fadeIn 0.4s ease-in-out; }
     @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
     
-    .titulo-portada { color: #d65a70; font-size: 1.5em; margin-bottom: 10px; font-style: italic; }
+    .titulo-portada { color: #d65a70; font-size: 1.5em; margin-bottom: 15px; font-style: italic; }
     h3 { color: #888; font-size: 0.9em; margin-bottom: 15px; border-bottom: 1px dashed #ccc; padding-bottom: 5px; }
     p { font-size: 0.95em; color: #333; line-height: 1.5; text-align: left; white-space: pre-line; }
     .img-portada { width: 160px; height: auto; border-radius: 10px; margin: 15px auto; display: block; }
@@ -26,48 +26,57 @@
 <body>
 
 <div class="book">
-
-    <!-- PÁGINA 1: PORTADA, TÍTULO Y REPRODUCTOR DE AUDIO -->
+    <!-- PÁGINA 1 -->
     <div class="page active">
         <h1 class="titulo-portada">Te amo para siempre, y siempre es hoy</h1>
         <p>La verdadera definición del amor no está en idealizar las relaciones como si fuesen perfectas desde el inicio, sino en elegirnos cada día de manera consciente y real.</p>
         <img src="portada.jpg" class="img-portada" alt="Pusheen y Camarón">
-        <div class="audio-btn" onclick="document.getElementById('cancionLove').play()">
-            🔊 Toca aquí para escuchar Love - Zoé 🎵
-        </div>
+        <div class="audio-btn" onclick="document.getElementById('cancionLove').play()">🔊 Reproducir Canción</div>
         <audio id="cancionLove" src="love-zoe.mp3"></audio>
     </div>
 
-    <!-- PÁGINAS 2 A 4 -->
+    <!-- PÁGINA 2 -->
     <div class="page">
         <h3>PÁGINA 2</h3>
         <p>El amor es paciencia, estar ahí tanto en las buenas como en las malas. Es saber esperar y acompañar a la persona elegida con el amor paciente y genuino que realmente es.</p>
     </div>
 
+    <!-- PÁGINA 3 -->
     <div class="page">
         <h3>PÁGINA 3</h3>
         <p>Como Noah y Allie en Diario de una pasión, construyendo algo real contra todo. Eres mi "Kind of Woman"... aunque a veces parezca Chico Bestia rogándole a Raven xDD.</p>
     </div>
 
+    <!-- PÁGINA 4 -->
     <div class="page">
         <h3>PÁGINA 4</h3>
         <p>Tú eres el pincel y el lienzo en una escala de grises que cobró vida. Se trata de amarnos paso a paso, detalle a detalle, hasta llegar juntos al cielo.</p>
     </div>
 
-    <!-- PÁGINAS 5 A 17 -->
-    <div class="page"><h3>PÁGINA 5</h3><p>Si me dieran a elegir entre tener la razón o tenerte a ti riéndote de mis tonterías, elijo lo segundo mil veces. Me encanta cómo conviertes un día ordinario en algo bonito con solo aparecer.</p></div>
-    <div class="page"><h3>PÁGINA 6</h3><p>A veces me pongo a pensar en la suerte que tuve de coincidir contigo. Entre tantas personas, horarios y lugares en el mundo, terminó siendo contigo con quien quería hablar todos los días.</p></div>
-    <div class="page"><h3>PÁGINA 7</h3><p>Prometo escucharte siempre, incluso cuando me cuentes cosas que no entiendo del todo o cuando te dé por hablar de cosas aleatorias a mitad de la noche. Tu voz siempre es mi lugar seguro.</p></div>
-    <div class="page"><h3>PÁGINA 8</h3><p>Eres como esa canción que pongo en bucle y nunca me cansa. De verdad, hay días en los que solo ver un mensaje tuyo me arregla la tarde por completo.</p></div>
-    <div class="page"><h3>PÁGINA 9</h3><p>Acepto que me da un poquito de pena decirte todo esto en persona (por eso me puse a programar este sitio xDD), pero cada palabra aquí escrita es completamente sincera.</p></div>
-    <div class="page"><h3>PÁGINA 10</h3><p>Me gusta la forma en que cuidamos de los dos. Quiero ser ese apoyo constante para ti, el que celebre tus logros y el que te sostenga cuando sientas que el día estuvo pesado.</p></div>
-    <div class="page"><h3>PÁGINA 11</h3><p>Como diría Luffy: ¡no necesito una razón para proteger y querer a quien me importa! Y tú te volviste la persona más importante de mi tripulación. 👒🏴‍☠️</p></div>
-    <div class="page"><h3>PÁGINA 12</h3><p>Quiero aprender de ti, de tus gustos, de tu forma de ver la vida. Gracias por tener la paciencia de enseñarme cosas nuevas (¡empezando por el inglés! xD).</p></div>
-    <div class="page"><h3>PÁGINA 13</h3><p>Hay momentos en los que simplemente me quedo viendo lo bonita que eres y me pregunto en qué momento me gané semejante regalo del cielo.</p></div>
-    <div class="page"><h3>PÁGINA 14</h3><p>No prometo que todo vaya a ser perfecto siempre, pero sí prometo que de mi parte nunca va a faltar el interés, el respeto y las ganas de resolver las cosas juntos.</p></div>
-    <div class="page"><h3>PÁGINA 15</h3><p>Me encanta la complicidad que estamos construyendo. Es bonito saber que puedo ser 100% yo mismo contigo sin miedo a ser juzgado.</p></div>
-    <div class="page"><h3>PÁGINA 16</h3><p>Si el amor se trata de construir día a día con pequeños detalles, quiero asegurarme de que nunca te falte una razón para sonreír al menos una vez al día.</p></div>
-    <div class="page"><h3>PÁGINA 17</h3><p>Y bueno... llegamos a la mitad del libro. Agárrate fuerte porque a partir de la siguiente página viene lo que escribí con todo el corazón desenfrenado 👀...</p></div>
+    <!-- PÁGINA 5 -->
+    <div class="page">
+        <h3>PÁGINA 5</h3>
+        <p>A veces la palabra "te amo" me da vueltas en la cabeza; es esa confusión dulce de sentir tanto cariño a nuestra edad, sin saber bien qué va a pasar. Pero lo que sí sé, es que me emociona muchísimo ver que llega un mensaje tuyo al teléfono, es lo que hace que mi día valga la pena.</p>
+    </div>
+
+    <!-- PÁGINA 6 -->
+    <div class="page">
+        <h3>PÁGINA 6</h3>
+        <p>Escuchar "Perla" de C.R.O me hace pensar en ti. Respeto mucho a esa persona especial que recuerdas en tu cumpleaños y sé lo importante que es para ti. Pero también sueño con que construyamos nuestra propia fecha, algo que sea solo nuestro. Por favor, no te rindas conmigo, estoy aquí aprendiendo a ser mejor para ti.</p>
+    </div>
+
+    <!-- PÁGINAS 7 A 17 -->
+    <div class="page"><h3>PÁGINA 7</h3><p>Elegir estar contigo todos los días es la decisión más bonita que he tomado.</p></div>
+    <div class="page"><h3>PÁGINA 8</h3><p>Me encanta reírme de cualquier tontería contigo y compartir esos momentos sencillos que hacen especial cualquier día.</p></div>
+    <div class="page"><h3>PÁGINA 9</h3><p>Prometo escucharte siempre, apoyarte en lo que hagas y ser ese espacio seguro donde puedas ser tú misma sin filtros.</p></div>
+    <div class="page"><h3>PÁGINA 10</h3><p>Cada pequeño avance, cada plática y cada sonrisa juntos va construyendo algo que realmente vale la pena cuidar.</p></div>
+    <div class="page"><h3>PÁGINA 11</h3><p>Quiero estar presente en los días tranquilos, pero sobre todo en los días difíciles para hacerte el camino más liviano.</p></div>
+    <div class="page"><h3>PÁGINA 12</h3><p>Gracias por tu paciencia, por tu forma de ser y por todo lo que me enseñas casi sin darte cuenta.</p></div>
+    <div class="page"><h3>PÁGINA 13</h3><p>A veces me detengo a pensar en cómo coincidimos y me da mucha tranquilidad saber que fue contigo con quien me tocó compartir esto.</p></div>
+    <div class="page"><h3>PÁGINA 14</h3><p>No busco que las cosas sean perfectas, sino que siempre seamos sinceros, nos respetemos y aprendamos a resolver todo juntos.</p></div>
+    <div class="page"><h3>PÁGINA 15</h3><p>Es muy bonito saber que puedo expresarme libremente contigo, sabiendo que entiendes lo que siento y lo que intento construir.</p></div>
+    <div class="page"><h3>PÁGINA 16</h3><p>Quiero asegurarme de dar lo mejor de mí para sacarte una sonrisa diaria y hacerte sentir valorada.</p></div>
+    <div class="page"><h3>PÁGINA 17</h3><p>Llegamos a la mitad de estas notas, y cada palabra escrita aquí lleva todo el cariño y las ganas de seguir adelante contigo.</p></div>
 
     <!-- PÁGINAS 18 A 25 -->
     <div class="page">
@@ -97,12 +106,12 @@ Tengo tiempo para saber... si lo que sueño concluye en algo... no te apures... 
 
     <div class="page">
       <h3>PÁGINA 21</h3>
-      <p>Le pido a Dios todas las noches que bendiga tu caminar y que te cuide mucho. De verdad estoy convencido de que haberte conocido no fue una coincidencia, sino un regalo muy lindo de su parte xDD. Como dice en el libro de Rut: <i>Where you go I will go, and where you stay I will stay. Your people will be my people and your God my God.</i></p>
+      <p>Le pido a Dios todas las noches que bendiga tu caminar y que te cuide mucho. De verdad estoy convencido de que haberte conocido no fue una coincidencia, sino un regalo muy lindo de su parte xDD. Como dice en el libro de Rut: Where you go I will go, and where you stay I will stay. Your people will be my people and your God my God.</p>
     </div>
 
     <div class="page">
       <h3>PÁGINA 22</h3>
-      <p>El amor de verdad es paciente, busca siempre el bien del otro y no se rinde ante nada. Le agradezco mucho al Señor porque a tu lado aprendo cada día a querer con ganas y de la forma más pura. <i>Love is patient, love is kind. It does not envy, it does not boast, it is not proud... It always protects, always trusts, always hopes, always perseveres.</i></p>
+      <p>El amor de verdad es paciente, busca siempre el bien del otro y no se rinde ante nada. Le agradezco mucho al Señor porque a tu lado aprendo cada día a querer con ganas y de la forma más pura. Love is patient, love is kind. It does not envy, it does not boast, it is not proud... It always protects, always trusts, always hopes, always perseveres.</p>
     </div>
 
     <div class="page">
@@ -112,12 +121,12 @@ Tengo tiempo para saber... si lo que sueño concluye en algo... no te apures... 
 
     <div class="page">
       <h3>PÁGINA 24</h3>
-      <p>Dicen las Sagradas Escrituras que <i>las muchas aguas no podrán apagar el amor, ni lo ahogarán los ríos</i>. Y es que lo que siento por ti no depende de un momento o de un estado de ánimo, está cimentado en la fe de que Dios nos puso en el mismo camino para cuidarnos el uno al otro.</p>
+      <p>Dicen las Sagradas Escrituras que las muchas aguas no podrán apagar el amor, ni lo ahogarán los ríos. Y es que lo que siento por ti no depende de un momento o de un estado de ánimo, está cimentado en la fe de que Dios nos puso en el mismo camino para cuidarnos el uno al otro.</p>
     </div>
 
     <div class="page">
       <h3>PÁGINA 25</h3>
-      <p>Que el Señor sea siempre el centro de todo lo que hagamos. Si lo ponemos a Él en primer lugar, estoy seguro de que ningún Papu podrá derribar este sentimiento xDD. Como dice en Eclesiastés: <i>Un cordón de tres dobleces no se rompe fácilmente.</i></p>
+      <p>Que el Señor sea siempre el centro de todo lo que hagamos. Si lo ponemos a Él en primer lugar, estoy seguro de que ningún Papu podrá derribar este sentimiento xDD. Como dice en Eclesiastés: Un cordón de tres dobleces no se rompe fácilmente.</p>
     </div>
 
     <!-- CONTROLES -->
